@@ -1,0 +1,39 @@
+site_name: ASAP 8.0.0
+plugins:
+  - obsidian-bridge
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true 
+      clickable_checkbox: true
+features:
+  - navigation.footer
+nav:
+  - Home: 'ASAP 8.0.0 Installation Guide.md'
+  - Plan: 'src/Plan.md'
+  - ASAP:
+    - About the ASAP Cloud Native Deployment: 'src/About-the-ASAP-Cloud-Native-Deployment.md'
+    - Planning and Validating Your Cloud Environment: 'src/Planning and Validating Your Cloud Environment.md'
+    - Database Installation & Creation: database.md
+    - Creating an ASAP Cloud Native Image: 'src/Creating an ASAP Cloud Native Image.md'
+    - Creating an ASAP Cloud Native Instance: 'src/Creating an ASAP Cloud Native Instance.md'
+    - Validating the ASAP Instance: 'src/Validating the ASAP Instance.md'
+    - Submitting Orders: 'src/Submitting Orders.md'
+    - Next Steps ASAP: 'src/Next Steps.md'
+  - Order Balancer:
+    - About Order Balancer: 'src/About-Order-Balancer.md'
+    - Planning your installation Order Balancer: 'src/Planning you installation Order Balancer.md'
+    - Creating an Order Balancer Cloud Native Image: 'src/Creating an Order Balancer Cloud Native Image.md'
+    - Creating an Order Balancer Cloud Native Instance: 'src/Creating an Order Balancer Cloud Native Instance.md'
+    - Deleting and Recreating Your Order Balancer Instance: 'src/Deleting and Recreating Your Order Balancer Instance & Troubleshooting Issues with the Scripts.md'
+    - Troubleshooting Issues with the Scripts: 'src/Deleting and Recreating Your Order Balancer Instance & Troubleshooting Issues with the Scripts.md'
+theme: readthedocs
+
+extra:
+  social:
+    - icon: simple/linkedin
+      link: https://www.linkedin.com/company/innova-solutions
+    - icon: simple/web
+      link: https://innovasolutions.com/
+copyright: Copyright &copy; 2026 Innova Solutions
+
