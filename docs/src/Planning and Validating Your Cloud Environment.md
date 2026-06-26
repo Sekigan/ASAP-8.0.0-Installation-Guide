@@ -24,6 +24,8 @@ Table 3-1 Hardware Requirements for Linux
 | ASAP Server and WebLogic Server       | 4 cores, 16 GB RAM                          |
 | Oracle Database                       | 4 cores, 32 GB RAM                          |
 | External Storage for Oracle Datafiles | 28 x 73 GB (RAID 1+0)                       |
+
+
 #### Hardware Sizing Requirements
 Table 3-2 describes the allocation of hardware sizing.
 Table 3-2 Hardware Sizing Requirements
@@ -32,6 +34,7 @@ Table 3-2 Hardware Sizing Requirements
 |:--|:--|
 |Less than 40 ASDLs/second|1 OCPU and 16 GB RAM|
 |Up to 80 ASDLs/second|2 OCPU and 32 GB RAM|
+
 #### Required Components for ASAP and Order Balancer Cloud Native
 To run, manage, and monitor the ASAP and Order Balancer cloud native deployment, the following components and capabilities are required. These must be configured in the cloud environment:
 
@@ -76,6 +79,8 @@ Table 1-2 Recommended Versions of software supported for ASAP Cloud Native Deplo
 | Helm                               | 3.19.0                  | Not applicable                                                                                                                                                                                                  |
 | Podman                             | 4.9.4 or later          | Not applicable                                                                                                                                                                                                  |
 | Traefik Ingress Controller         | 2.10.6 or later         | For details, see: [https://artifacthub.io/packages/helm/traefik/traefik](https://artifacthub.io/packages/helm/traefik/traefik).                                                                                 |
+
+
 #### Synchronizing Time Across Servers
 It is important that you synchronize the date and time across all machines that are involved in testing, including client test drivers and Kubernetes worker nodes. Oracle recommends that you do this using Network Time Protocol (NTP), rather than manual synchronization, and strongly recommends it for Production environments. Synchronization is important in inter-component communications and in capturing accurate run-time statistics.
 

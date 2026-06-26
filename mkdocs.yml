@@ -29,6 +29,8 @@ nav:
     - Troubleshooting Issues with the Scripts: 'src/Deleting and Recreating Your Order Balancer Instance & Troubleshooting Issues with the Scripts.md'
 theme: readthedocs
 
+extra_css:
+  - my-css.css
 extra:
   social:
     - icon: simple/linkedin
