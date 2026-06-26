@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Plan - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Plan";
+        var mkdocs_page_input_path = "src/Plan.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Plan</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pre-installation-checklist">Pre-Installation Checklist</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#infrastructure-environment">Infrastructure &amp; Environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#security-access">Security &amp; Access</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#database-storage">Database &amp; Storage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#application-images-asap-order-balancer">Application Images (ASAP &amp; Order Balancer)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deployment-configuration">Deployment &amp; Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monitoring-logging-alerting">Monitoring, Logging &amp; Alerting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation-runbooks">Documentation &amp; Runbooks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#staging-environment-for-cartridge-testing">Staging Environment for Cartridge Testing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deployment-phases">Deployment Phases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#post-installation-tasks">Post-Installation Tasks</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Plan</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="asap-cloud-native-deployment-plan">ASAP Cloud Native Deployment Plan</h1>
+<h2 id="pre-installation-checklist">Pre-Installation Checklist</h2>
+<p>This document outlines the comprehensive plan for deploying ASAP (and Order Balancer) in a cloud-native environment. Use this checklist to ensure all prerequisites and steps are covered.</p>
+<h3 id="infrastructure-environment">Infrastructure &amp; Environment</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Virtual Machine (VM) or Build Host  </li>
+<li>Provision a VM or build host with Podman/Docker installed.  </li>
+<li>Ensure adequate CPU, RAM, and disk space (see <a href="../Prerequisites%20for%20Creating%20ASAP%20Image/">Prerequisites for Creating ASAP Image</a> and <a href="../Prerequisites%20for%20Creating%20an%20Order%20Balancer%20Image/">Prerequisites for Creating an Order Balancer Image</a>).  </li>
+<li>
+<p>Verify network connectivity to container registries and Kubernetes cluster.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Container Registry  </p>
+</li>
+<li>Set up a private container registry (e.g., Harbor, GitLab Container Registry, AWS ECR, or OCI Container Registry) for storing ASAP and Order Balancer images.  </li>
+<li>
+<p>Configure authentication and access policies.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Cartridge Definitions  </p>
+</li>
+<li>
+<p>Review and finalize the list of cartridges to be used.  </p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Version Control System (VCS)  </p>
+</li>
+<li>Choose a VCS (e.g., Git) and create repositories for:  <ul>
+<li>Dockerfiles and build scripts.  </li>
+<li>Helm charts and Kubernetes manifests.  </li>
+<li>Configuration files (properties, YAML).  </li>
+</ul>
+</li>
+<li>
+<p>Set up CI/CD pipelines for automated builds and deployments.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Kubernetes Cluster  </p>
+</li>
+<li>Provision a Kubernetes cluster (on-prem or managed like OKE, EKS, AKS, GKE).  </li>
+<li>Ensure cluster version compatibility with ASAP/Order Balancer (see <a href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>).  </li>
+<li>Install Traefik</li>
+</ul>
+<h3 id="security-access">Security &amp; Access</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Secrets Management  </li>
+<li>
+<p>Use Kubernetes Secrets or external secret management (e.g., HashiCorp Vault, AWS Secrets Manager) for storing:  </p>
+<ul>
+<li>Container registry credentials.  </li>
+<li>Database passwords.  </li>
+<li>API keys and tokens.  </li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>TLS/SSL Certificates</strong>  </p>
+</li>
+<li>Obtain certificates for ingress endpoints (See "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/cloud-native-deploy/integrating-asap.html#GUID-BB51B3EA-8683-469D-AA80-8DEE9A1B536F">Setting Up ASAP Cloud Native for Incoming Access</a>.").  </li>
+<li>
+<p>Ensure certificates are trusted and automatically renewed.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Authentication &amp; Authorization</strong>  </p>
+</li>
+<li>Define user roles and access controls for cluster and application.  </li>
+</ul>
+<h3 id="database-storage">Database &amp; Storage</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Database Provisioning</strong>  </li>
+<li>Provision a dedicated database instance or use managed DB service.  </li>
+<li>Create schemas, users, and set up connection strings.  (See <a href="../Planning%20you%20installation%20Order%20Balancer/">src/Planning you installation Order Balancer</a> &amp;&amp; "<a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/industries/communications/asap/8.0/cloud-native-deploy&amp;id=ASPIG-GUID-F4F8FEAB-E65D-448E-850B-AF4193699A9A">Creating Oracle Database Tablespaces, Tablespace User, and Granting Permissions</a>")</li>
+<li>Plan backup and recovery strategy (automated snapshots, point-in-time recovery).  </li>
+<li>Test connectivity from the application.</li>
+</ul>
+<h3 id="application-images-asap-order-balancer">Application Images (ASAP &amp; Order Balancer)</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Build Images</strong>  </li>
+<li>Prepare Dockerfiles based on prerequisites.  </li>
+<li>Build ASAP and Order Balancer images using Podman/Docker.  </li>
+<li>Tag images with version numbers and push to the private registry.  </li>
+<li>
+<p>Verify image integrity and size.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Test Images Locally</strong>  </p>
+</li>
+<li>Run containers locally to validate startup, configuration, and basic functionality.  </li>
+<li>Check logs for errors.</li>
+</ul>
+<h3 id="deployment-configuration">Deployment &amp; Configuration</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Helm Charts or Manifests</strong>  </li>
+<li>Prepare Helm charts or Kubernetes manifests for deploying ASAP and Order Balancer instances.  </li>
+<li>Parameterize configurations (environment variables, secrets, resource limits).  </li>
+<li>
+<p>Include readiness/liveness probes, health checks.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Environment-Specific Configurations</strong>  </p>
+</li>
+<li>Create configuration files for:  <ul>
+<li>Development.  </li>
+<li>Staging/Testing.  </li>
+<li>Production.  </li>
+</ul>
+</li>
+<li>
+<p>Override settings (e.g., database URLs, logging levels, feature flags).</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Install ASAP/Order Balancer Instances</strong>  </p>
+</li>
+<li>Deploy to Kubernetes using Helm install/upgrade.  </li>
+<li>Verify pods are running and services are exposed.  </li>
+<li>Validate networking (ingress access, internal communication).</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Unit &amp; Integration Tests</strong>  </li>
+<li>Run automated tests for ASAP and Order Balancer components.  </li>
+<li>
+<p>Test cartridge installation and functionality (see <a href="../Working%20with%20Cartridges/">src/Working with Cartridges</a>).</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Performance/Load Testing</strong>  </p>
+</li>
+<li>Simulate expected load to validate scalability and resource usage.  </li>
+<li>
+<p>Tune resource requests/limits.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>User Acceptance Testing (UAT)</strong>  </p>
+</li>
+<li>
+<p>Test order submission, balance operations, and error handling.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Disaster Recovery Testing</strong>  </p>
+</li>
+<li>Test restore from backups.  </li>
+<li>Simulate failover scenarios (pod restarts, node failures).</li>
+</ul>
+<h3 id="monitoring-logging-alerting">Monitoring, Logging &amp; Alerting</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Set Up Monitoring</strong>  </li>
+<li>Create dashboards (Grafana) for ASAP and Order Balancer performance.  </li>
+<li>
+<p>Define alerts for critical conditions (pod down, high latency, disk space).</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Log Aggregation</strong>  </p>
+</li>
+<li>Ensure logs are searchable and retained per policies.</li>
+</ul>
+<h3 id="documentation-runbooks">Documentation &amp; Runbooks</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Operational Documentation</strong>  </li>
+<li>Create runbooks for:  <ul>
+<li>Deployment steps.  </li>
+<li>Upgrade/rollback procedures.  </li>
+<li>Troubleshooting common issues.  </li>
+<li>Backup and restore procedures.  </li>
+</ul>
+</li>
+<li>
+<p>Update <a href="../Prerequisites%20for%20Creating%20ASAP%20Image/">src/Prerequisites for Creating ASAP Image</a> and <a href="../Prerequisites%20for%20Creating%20an%20Order%20Balancer%20Image/">src/Prerequisites for Creating an Order Balancer Image</a> with actual values.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> Include troubleshooting tips.</p>
+</li>
+</ul>
+<h3 id="staging-environment-for-cartridge-testing">Staging Environment for Cartridge Testing</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Create a Dedicated Testing Environment</strong>  </li>
+<li>Provision a separate Kubernetes namespace or cluster for testing new cartridges.  </li>
+<li>Deploy a non-production ASAP/Order Balancer instance there.  </li>
+<li>
+<p>Test cartridge installation, upgrade, and removal without affecting production.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Automate Cartridge Validation</strong>  </p>
+</li>
+<li>Create scripts to test cartridge functionality after installation.  </li>
+<li>Document expected outputs and validation steps.</li>
+</ul>
+<h3 id="deployment-phases">Deployment Phases</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Phase 1: Build and Verify Images</strong>  </li>
+<li>Complete image builds and push to registry.  </li>
+<li>
+<p>Validate images in a sandbox environment.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Phase 2: Staging Deployment</strong>  </p>
+</li>
+<li>Deploy to staging cluster.  </li>
+<li>
+<p>Run all tests (unit, integration, load).  </p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Phase 3: Production Deployment</strong>  </p>
+</li>
+<li>Schedule maintenance window.  </li>
+<li>Deploy to production cluster.  </li>
+<li>
+<p>Monitor closely during initial hours.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Phase 4: Handover</strong>  </p>
+</li>
+<li>Train operations team.  </li>
+<li>Deliver documentation.  </li>
+<li>Establish ongoing support process.</li>
+</ul>
+<h3 id="post-installation-tasks">Post-Installation Tasks</h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Verify all services are healthy</strong> (pods, endpoints).  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Validate backups are running</strong>.  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Review alerting rules and dashboards</strong>.  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Schedule periodic health checks</strong> (weekly/monthly).  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Plan for updates</strong> (image upgrades, cartridge updates, cluster upgrades).</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ol>
+<li>Review this plan with the team and adjust based on actual environment.  </li>
+<li>Fill in specifics (registries, cluster names, database details).  </li>
+<li>Start with the VM/build host setup and image building.</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../ASAP%208.0.0%20Installation%20Guide/" class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../About-the-ASAP-Cloud-Native-Deployment/" class="btn btn-neutral float-right" title="About the ASAP Cloud Native Deployment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../ASAP%208.0.0%20Installation%20Guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../About-the-ASAP-Cloud-Native-Deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

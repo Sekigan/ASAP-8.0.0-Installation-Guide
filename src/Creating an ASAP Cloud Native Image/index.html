@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Creating an ASAP Cloud Native Image - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating an ASAP Cloud Native Image";
+        var mkdocs_page_input_path = "src/Creating an ASAP Cloud Native Image.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Creating an ASAP Cloud Native Image</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-the-asap-cloud-native-image-builder">Downloading the ASAP Cloud Native Image Builder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites-for-creating-asap-image">Prerequisites for Creating ASAP Image</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-the-asap-cloud-native-image">Creating the ASAP Cloud Native Image</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-cartridges">Working with Cartridges</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#securing-your-asap-installation">Securing Your ASAP Installation</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASAP</li>
+      <li class="breadcrumb-item active">Creating an ASAP Cloud Native Image</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="creating-an-asap-cloud-native-image">Creating an ASAP Cloud Native Image</h1>
+<h4 id="downloading-the-asap-cloud-native-image-builder">Downloading the ASAP Cloud Native Image Builder</h4>
+<p>To build the ASAP cloud native image, the <code>asap-img-builder.zip</code> file is required. For more information about downloading the ASAP cloud native Image Builder, see "<a href="../Downloading%20the%20ASAP%20Cloud%20Native%20Artifacts/">Downloading the ASAP Cloud Native Artifacts</a>".</p>
+<p>ASAP cloud native builder kit contains:</p>
+<ul>
+<li>The scripts to install the required packages.</li>
+<li>The scripts to install database client, Java, WebLogic Server, Opatch, Release Updates (RU) and ASAP.</li>
+</ul>
+<h4 id="prerequisites-for-creating-asap-image"><a href="../Prerequisites%20for%20Creating%20ASAP%20Image/">Prerequisites for Creating ASAP Image</a></h4>
+<h4 id="creating-the-asap-cloud-native-image">Creating the ASAP Cloud Native Image</h4>
+<p>The ASAP cloud native image builder tool builds the ASAP cloud native image, which is then pushed to the repository and deployed in the Kubernetes cluster. If the repository is not available, you copy the image to all the worker nodes of the cluster.</p>
+<p>The ASAP installer is packaged with the ASAP cloud native image builder and the cloud native toolkit.
+To create the ASAP cloud native image:</p>
+<ol>
+<li>Copy the <code>asap-img-builder.zip</code> file to the machine where the Podman is running.</li>
+<li>Extract the contents of the zip file by running the following command:
+    <code>unzip asap-img-builder.zip</code></li>
+<li>Copy the following installers to the <code>$asap-img-builder/installers</code> directory.<ul>
+<li>Linux Installer for ASAP 8.0 or later</li>
+<li>Installers for WebLogic Server.</li>
+<li>Oracle Database Client</li>
+<li>OPatch Utility</li>
+<li>JDK 21</li>
+<li>Oracle Database Release Updates</li>
+<li>Redhat Package Manager(RPM) Installer</li>
+</ul>
+</li>
+<li><strong>Copy the required cartridges to the <code>$asap-img-builder/cartridges</code> directory.</strong></li>
+<li>Set the environment variable for ASAP_IMG_BUILDER to the <code>$asap-img-builder</code> directory.</li>
+<li>Update the <code>$asap-img-builder/scripts/tnsnames.ora</code> file with the database details. For example,</li>
+</ol>
+<pre><code class="language-bash">orcl19c =
+   (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = &lt;database_host&gt;)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = service name)
+    )
+  )
+</code></pre>
+<ol>
+<li>Update the <code>HTTPS_PROXY</code> and <code>HTTP_PROXY</code> variables in the <code>build_env.sh</code> script.</li>
+</ol>
+<pre><code class="language-env">base_image=100.76.142.126:5000/oraclelinux:8
+HTTPS_PROXY=http://www-proxy-brmdc.us.oracle.com:80
+HTTP_PROXY=http://www-proxy-brmdc.us.oracle.com:80
+
+# Podman details
+ASAP_IMAGE_TAG=&quot;8.0.0.0.0&quot;
+ASAP_VOLUME=podmanhost_volume_c0
+ASAP_CONTAINER=&quot;asap-wr73&quot;
+PODMAN_HOSTNAME=&quot;asaphost&quot;
+
+# Installer filenames
+JDK_FILE=jdk-21_linux-x64_bin.tar.gz
+DB_CLIENT_FILE=LINUX.X64_193000_client.zip
+FMW_FILE=V1045131-01.zip
+DB_OPATCH_FILE=p6880880_190000_Linux-x86-64.zip
+DB_RU_FILE=p35319490_190000_Linux-x86-64.zip
+RPM_FILE=asap-installer-8.0.0.0.0-B92.x86_64.rpm
+ANT_FILE=apache-ant-1.10.15-bin.tar.gz
+
+## Installation locations
+TNS_ADMIN=/scripts/
+JAVA_HOME=/usr/lib/jvm/java/jdk-21.0.9
+PATH=$ORACLE_HOME:$JAVA_HOME/bin:$PATH
+CV_ASSUME_DISTID=OEL8
+</code></pre>
+<p>JDK 21 is required by the ASAP installer and the RPM installer.
+NOTE: Ensure that the file names of <code>JDK_FILE</code>,<code>DB_CLIENT_FILE</code>, <code>FMW_FILE</code>, <code>DB_OPATCH_FILE</code>, <code>DB_RU_FILE</code>, and <code>RPM_FILE</code> variables match with the file names in the <code>$ASAP_IMG_BUILDER/installers</code> directory.</p>
+<!-- Help with setting parameters  -->
+<p>//<code>I need help configuring the parameters.</code>
+8. Update the following parameters in the <code>$asap-img-builder/asap_image.properties</code> file with the required details for ASAP and the WebLogic Server domain. You can update the configuration parameters that must be updated after ASAP installation using <code>asap_image.properties</code> file. 
+   All the configuration parameters should be prefixed with <code>cfg</code>. You can create multiple ASAP instances by entering multiple unique environment IDs in the <code>ENV_ID</code> variable separated by a comma. For example, <code>ENV_ID=</code>CNE1, CNE2, CNE3 where CNE1, CNE2, and CNE3 are unique environment IDs.</p>
+<pre><code class="language-env">##########################################################################
+##  Configure ASAP LINUX Environment Variables
+##########################################################################
+##  Type the name of the base directory of the Oracle database client program. The ASAP installation generates an ORACLE_HOME LINUX environment variable based on the directory name.
+ORACLE_HOME=
+##  Select the ASAP mode that you require. You can run ASAP in the Production (PROD) or Development (TEST) mode. ASAP loads static provisioning configuration information from the database based on mode. 
+ASAP_SYS=TEST
+##  Type the ASAP environment ID (maximum 4 alphanumeric characters). The ASAP environment ID is a unique identifier for each ASAP environment as one system  can have multiple ASAP instances.
+ENV_ID=
+##  Type the name of the location where the ASAP needs to be installed in the image
+ASAP_BASE=
+
+
+##########################################################################
+##  Configure ASAP Database 
+##########################################################################
+##  The ASAP installation program retrieves the name of the Oracle RDBMS Server from tnsname.ora file on the installed Oracle client program. 
+##  Name of Oracle RDBMS Server :
+DSQUERY=
+##  Oracle Server DBA User Name  :
+DB_USER=
+##  Oracle Server DBA Password  :
+DB_PASSWORD=
+##                         ASAP Database Users Creation
+##                        ------------------------------
+##  CREATE_USERS=true:  The database users will be created during the ASAP configuration.
+##  CREATE_USERS=false: The database users must be created by the user beforehand.
+CREATE_USERS=true
+##  Is this an Oracle RAC database :
+RACDB=false
+##  RAC Database Connection String, Format: Host1:Port1:ServiceName,Host2:Port2:ServiceName,... :
+RACDB_CONNECT_STRING=
+
+##########################################################################
+##  Configure ASAP Database Table spaces 
+##########################################################################
+##Specify the required table space for each ASAP server. The recommended table space set up for the SARM server is SARM_DATA for the data table space and SARM_INDEX for the index table space. 
+#The recommended table space for all other ASAP servers is DATA for data table space and INDX for index table space. ASAP database scripts populate the database schema based on the defined values. 
+##  ADM
+ADMDB_PARAMETERS=ADM, POOL_TS, POOL_TS
+##  Control
+CTRLDB_PARAMETERS=CTRL, POOL_TS, POOL_TS
+##  NEP
+NEPDB_PARAMETERS=NEP, POOL_TS, POOL_TS
+##  SARM
+SARMDB_PARAMETERS=SARM, POOL_TS, POOL_TS
+##  TEMP ( Specify the temporary table space you want ASAP to use.)
+TEMP_TS=TEMP
+
+##########################################################################
+## Configure ASAP Database User Password 
+##########################################################################
+##For each ASAP server, type the password for each database schema. ASAP database scripts create user schemas based on the user name and password that you define. 
+##  ADM
+ADMDB_PASSWORD=
+##  Control
+CTRLDB_PASSWORD=
+##  NEP
+NEPDB_PASSWORD=
+##  SARM
+SARMDB_PASSWORD=
+
+##########################################################################
+##  Configure ASAP LINUX Environment Variables - ASAP Server Port
+##########################################################################
+##Define the port number for ASAP servers.
+##  CTRL Server
+CTRL_PORT=30001
+##  SARM Server
+SARM_PORT=30002
+##  NEP Server
+NEP_PORT=30003
+##  Define the port number for work order event notification for the OCA SRP. This information will be populated in tbl_asap_srp table in the SARM database.  
+## Oca Server
+OCA_PORT=30004
+##  Define the port number for the Java SRP server to send work orders. This information will be populated in the tbl_listens table in the Control database. Define the port number for the Java SRP server to receive work order events. This information will be populated in the tbl_asap_srp table in the SARM database.  
+##  JSRP - Sending WO
+JSRPsend_PORT=30005
+##   JSRPS123 - Receiving WO event 
+JSRPrecev_PORT=30006
+##   ASAP DAEMON 
+DAEMON_PORT=30007
+##   JeNEP Listener Port 
+NEP_Listener_PORT=30008
+
+##########################################################################
+##  Configure Oracle WebLogic Server for ASAP
+##########################################################################
+##  Path to the WebLogic installation directory
+WL_HOME=/home/oracle/weblogic
+##  User Name of the Oracle WebLogic Server Administrator
+WLS_USER=
+##  HOST for the Oracle WebLogic Server
+WLS_HOST=
+##      Port for the Oracle WebLogic AdminServer
+##  ------------------------------------------------
+##  Specify NON-SSL Port if WLS_SSL_ENABLED is false
+##  Specify SSL Port if WLS_SSL_ENABLED is true 
+WLS_ADMIN_PORT=7890
+##  NON SSL Port for the target server of the WebLogic
+WLS_TARGET_PORT=7890
+##  SSL Port for the target server of the WebLogic
+WLS_TARGET_SSL_PORT=
+##  Oracle WebLogic Server
+WLS_SERVER=AdminServer
+## Use SSL?
+WLS_SSL_ENABLED=true
+## SSL KeyStore File
+KEYSTORE_FILE=
+WLS_CUSTOM_TRUST_KEYSTORE_TYPE=pkcs12
+WLS_CUSTOM_TRUST_PASSPHRASE=
+MAX_QUERY_LIMIT=200
+CFG.DB_ADMIN_ON=1
+CFG.DB_ADMIN_PROC_PARAM=30
+## Weblogic Domain Name
+WLS_DOMAIN_NAME=asapDomain
+## Weblogic Domain Location 
+WLS_DOMAIN_LOCATION=
+## Weblogic Channel Listen Port
+WLS_CHANNEL_LISTEN_PORT=7891
+## Weblogic Channel Public Port
+WLS_CHANNEL_PUBLIC_PORT=30305
+
+
+##########################################################################
+## Configure Oracle WebLogic Server Passwords
+##########################################################################
+##  Each password must be at least 8 characters long, and must contain at least 1 number or special character.
+##  ASAP_admin
+ADMIN_PASSWORD=
+##  cmws_studio
+CMWS_PASSWORD=
+##  ASAP_monitor
+MONITOR_PASSWORD=
+##  ASAP_operator
+OPERATOR_PASSWORD=
+##  WebLogic admin password
+WLS_PASSWORD=
+##  asap_ws_user
+WS_PASSWORD=
+
+##########################################################################
+## Configure GRPC specific properties
+##########################################################################
+## SSL for GRPC ? 1 = Enabled, 0 = Not Enabled
+GRPC_SSL_ENABLED=0
+## Authentication for GRPC ? 1 = Enabled, 0 = Not Enabled
+GRPC_AUTH_ENABLED=0
+## Absolute path of SSL identity certificate in the pkcs12 format
+SSL_IDENTITY_PKCS12_LOCATION=
+## Absolute path of SSL trust certificate in the pkcs12 format
+SSL_TRUST_PKCS12_LOCATION=
+##########################################################################
+## Configure ASAP cfg values
+##########################################################################
+
+CFG.MSGSND_RETRIES=6
+CFG.DB_ADMIN_ON=1
+CFG.DB_ADMIN_PROC_PARAM=30
+</code></pre>
+<!-- Help with setting parameters  -->
+<p>NOTE: 
+- You must not change the default value (<code>0 - Not Enabled</code>) for the parameters <code>GRPC_SSL_ENABLED</code> and <code>GRPC_AUTH_ENABLED</code>.
+- If Traefik is configured, <code>WLS_CHANNEL_PUBLIC_PORT</code> parameter must have the traefik ingress controller nodeport value (for http 30305 and for https 30443).
+- If DNS is configured, <code>WLS_CHANNEL_PUBLIC_PORT</code> must have the value same as <code>WLS_CHANNEL_LISTEN_PORT</code>.
+- <code>ADMIN_PASSWORD</code>, <code>CMWS_PASSWORD</code>, <code>MONITOR_PASSWORD</code>, <code>OPERATOR_PASSWORD</code>, <code>WLS_PASSWORD</code>, and <code>WS_PASSWORD</code> parameters must have passwords at least 8 characters long, and must contain at least 1 number or special character.
+- The <code>asap_image.properties</code> file is available only in the host machine and not as part of the ASAP image.</p>
+<!-- Help with setting parameters  -->
+
+<ol>
+<li>Run the <code>build-asap-images.sh</code> script using the following command:
+   <strong><code>./build-asap-images.sh -i asap</code></strong></li>
+</ol>
+<p>The script creates the staging ASAP image for the environment IDs specified in the <code>asap_image.properties</code> file by installing WebLogic Server, Java, and the database client.</p>
+<h3 id="working-with-cartridges"><a href="../Working%20with%20Cartridges/">Working with Cartridges</a></h3>
+<h3 id="securing-your-asap-installation">Securing Your ASAP Installation</h3>
+<p>ASAP security is designed to provide confidentiality, data integrity, and ensure on-demand access to services for authorized users. For information about ASAP security, see "<a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/industries/communications/asap/8.0/cloud-native-deploy&amp;id=ASPSA-GUID-2184A032-B068-4790-B92C-6C321C5990DB">Setting Up and Managing ASAP Security</a>" in ASAP System Administrator's Guide.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/" class="btn btn-neutral float-left" title="Planning and Validating Your Cloud Environment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/" class="btn btn-neutral float-right" title="Creating an ASAP Cloud Native Instance">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

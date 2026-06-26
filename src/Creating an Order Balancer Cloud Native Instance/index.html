@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Creating an Order Balancer Cloud Native Instance - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating an Order Balancer Cloud Native Instance";
+        var mkdocs_page_input_path = "src/Creating an Order Balancer Cloud Native Instance.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Creating an Order Balancer Cloud Native Instance</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Order Balancer</li>
+      <li class="breadcrumb-item active">Creating an Order Balancer Cloud Native Instance</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>This chapter describes how to create an Order Balancer cloud native instance in your cloud environment using the operational scripts and the base Order Balancer configuration provided in the Order Balancer cloud native toolkit.</p>
+<p>Before you create an Order Balancer instance, you must do the following:</p>
+<ul>
+<li>Download the ASAP cloud native tar file and extract the <code>ob-cntk.zip</code> file. For more information about downloading the Order Balancer cloud native toolkit, see "<a href="../Downloading%20the%20ASAP%20Cloud%20Native%20Artifacts/">Downloading the ASAP Cloud Native Artifacts</a>".</li>
+</ul>
+<h3 id="installing-the-order-balancer-artifacts-and-the-toolkit">Installing the Order Balancer Artifacts and the Toolkit</h3>
+<p>Build container image for the Order Balancer application using the Order Balancer cloud native Image Builder.
+You must create a private repository for this image, ensuring that all nodes in the cluster have access to the repository. See "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/cloud-native-deploy/planning-validating-your-cloud-environment1.html#GUID-C071DB90-B391-44AB-BA7B-65CD0FEC8D52">About Container Image Management</a>" for more details.
+Copy the Order Balancer cloud native toolkit that is the <code>ob-cntk.zip</code> file to one of the nodes in the Kubernetes cluster and do the following:
+- On Oracle Linux: Where Kubernetes is hosted on Oracle Linux, download and extract the tar archive to each host that has connectivity to the Kubernetes cluster.
+- On OKE: For an environment where Kubernetes is running in OKE, extract the contents of the tar archive on each OKE client host. The OKE client host is the bastion host/s that is set up to communicate with the OKE cluster.</p>
+<p>Set the variable for the installation directory by running the following command:
+<code>$ export OB_CNTK=ob_cntk_path</code></p>
+<p>In the previous example, <code>ob_cntk_path</code> is the installation directory of the Order Balancer cloud native toolkit.</p>
+<h3 id="installing-the-traefik-container-image">Installing the Traefik Container Image</h3>
+<p>To leverage the Order Balancer cloud native samples that integrate with Traefik, t<strong>he Kubernetes environment must have the Traefik ingress controller installed and configured</strong>.</p>
+<p>If you are working in an environment where the Kubernetes cluster is shared, confirm whether Traefik has already been installed and configured for Order Balancer cloud native. If Traefik is already installed and configured, set your <code>TRAEFIK_NS</code> environment variable to the appropriate name space.</p>
+<p>The instance of Traefik that you installed to validate your cloud environment must be removed as it does not leverage the Order Balancer cloud native samples. Ensure that you have removed this installation in addition to purging the Helm release. Check that any roles and rolebindings created by Traefik are removed. There could be a clusterrole and clusterrolebinding called "traefik-operator". There could also be a role and rolebinding called "traefik-operator" in the $TRAEFIK_NS name space. Delete all of these before you set up Traefik.</p>
+<pre><code class="language-bash">kubectl get clusterrole -n $TRAEFIK_NS 
+kubectl get clusterrolebinding -n $TRAEFIK_NS 
+kubectl delete clusterrole &lt;clusterrole_name&gt; -n $TRAEFIK_NS 
+kubectl delete clusterrolebinding &lt;clusterrolebinding_name&gt; -n $TRAEFIK_NS 
+</code></pre>
+<p>To download and install the Traefik container image:</p>
+<ol>
+<li>Ensure that Podman in your Kubernetes cluster can pull images from the container registry. See [ASAP Compatibility Matrix] for the required and supported versions of the Traefik image.</li>
+<li>Run the following command to create a name space ensuring that it does not already exist:
+    Note: You might want to add the traefik name space to the environment setup such as <code>.bashrc</code>.</li>
+</ol>
+<pre><code class="language-bash">kubectl get namespaces
+export TRAEFIK_NS=traefik    
+kubectl create namespace $TRAEFIK_NS
+</code></pre>
+<ol>
+<li>Run the following commands to install Traefik using the <code>$OB_CNTK/samples/charts/traefik/values.yaml</code> file in the samples:</li>
+</ol>
+<pre><code class="language-bash">helm repo add traefik https://traefik.github.io/charts
+helm install traefik-operator traefik/traefik \  
+--namespace $TRAEFIK_NS \  
+--values $OB_CNTK/samples/charts/traefik/values.yaml \   
+--set &quot;kubernetes.namespaces={$TRAEFIK_NS}&quot;   
+--version 26.0.0`
+</code></pre>
+<p>In the example, repo_link is <a href="https://helm.traefik.io/traefik">https://helm.traefik.io/traefik</a> or <a href="https://traefik.github.io/charts">https://traefik.github.io/charts</a> based on the helm chart version. For more details, see: <a href="https://github.com/traefik/traefik-helm-chart">https://github.com/traefik/traefik-helm-chart</a></p>
+<p>After the installation, Traefik monitors the name spaces listed in its <code>kubernetes.namespaces</code> field for Ingress objects. The scripts in the toolkit manage this name space list as part of creating and tearing down Order Balancer cloud native projects.</p>
+<p>When the <code>values.yaml</code> Traefik sample in the Order Balancer cloud native toolkit is used as is, Traefik is exposed to the network outside of the Kubernetes cluster through port 30305. To use a different port, edit the YAML file before installing Traefik. Traefik metrics are also available for Prometheus to scrape from the standard annotations.</p>
+<p>Traefik function can be viewed using the Traefik dashboard. Create the Traefik dashboard by running the instructions provided in the <code>$OB_CNTK/samples/charts/traefik/traefik-dashboard.yaml</code> file. To access this dashboard, the URL is: <code>http://traefik.asap.org</code>. This is if you use the <code>values.yaml</code> file provided with the Order Balancer cloud native toolkit; it is possible to change the hostname as well as the port to your desired values.</p>
+<h3 id="creating-an-order-balancer-instance">Creating an Order Balancer Instance</h3>
+<p>This section describes how to create an Order Balancer instance.</p>
+<h4 id="setting-environment-variables">Setting Environment Variables</h4>
+<p>ASAP cloud native relies on access to certain environment variables to run seamlessly. Ensure the following variables are set in your environment:
+- Path to your private specification repository
+- Traefik name space</p>
+<p>To set the environment variables:
+- Set the <code>TRAEFIK_NS</code> variable for Traefik name space as follows:
+    <code>$ export TRAEFIK_NS=traefik</code></p>
+<h4 id="creating-secrets"><a href="../Creating%20Secrets/">Creating Secrets</a></h4>
+<p>You must store sensitive data and credential information in the form of Kubernetes Secrets<strong> that the scripts and Helm charts in the toolkit consume. Managing secrets is out of the scope of the toolkit and must be implemented while adhering to your organization's corporate policies. Additionally, </strong>ASAP cloud native does not establish password policies.</p>
+<h4 id="registering-the-namespace">Registering the Namespace</h4>
+<p>After you set the environment variables, register the name space. To register the name space, run the following command:</p>
+<pre><code class="language-bash">$OB_CNTK/scripts/register-namespace.sh -p sr -t targets 
+# For example,
+$OB_CNTK/scripts/register-namespace.sh -p sr -t traefik
+</code></pre>
+<p>Where <code>-p</code> is the namespace where Order Balancer is being deployed.</p>
+<p>Note: <code>traefik</code> is the name of the targets for registration of the namespace sr. The script uses <code>TRAEFIK_NS</code> to find these targets. Do not provide the <code>traefik</code> target if you are not using Traefik.</p>
+<h3 id="creating-an-order-balancer-instance_1">Creating an Order Balancer Instance</h3>
+<p>This procedure describes how to create an Order Balancer instance in your environment using the scripts that are provided with the toolkit.</p>
+<p>To create an Order Balancer instance:
+1. Update the <code>$OB_CNTK/charts/asap/values.yaml</code> file with the following values:</p>
+<pre><code class="language-yaml">replicaCount: 1
+image:
+  repository: obcn
+  pullPolicy: IfNotPresent
+  tag: &quot;8.0.0.0.0&quot;
+imagePullSecrets:
+  - name: asap-imagepull
+obEnv:
+  envid: ob96
+  port: 7501
+  host: obhost
+  domain: ob
+persistence:
+  enabled: true
+
+nameOverride: &quot;&quot;
+fullnameOverride: &quot;&quot;
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: &quot;&quot;
+
+podAnnotations: {}
+
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+servicechannel:
+  name: channelport
+  type: ClusterIP
+  port: 7502
+
+service:
+  name: adminport
+  type: ClusterIP
+  port: 7501
+
+ingress:
+  type: TRAEFIK
+  enabled: true
+  sslIncoming: false
+  adminsslhostname: adminobhostssl.asap.org
+  adminhostname: adminobhost.asap.org
+
+  secretName: project-instance-obcn-tls-cert
+
+  hosts:
+    - host: adminobhost.asap.org
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+ requests:
+  memory: &quot;4Gi&quot;
+  cpu: &quot;2&quot;
+ limits:
+  memory: &quot;4Gi&quot;
+  cpu: &quot;2&quot;
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+# To avoid co-locating two OB replicas/pods on the same node remove {} and 
+# uncomment below lines. Replace &lt;OB-ENV-ID&gt; with OB Env ID
+affinity: {}
+#  podAntiAffinity:
+#    requiredDuringSchedulingIgnoredDuringExecution:
+#      - labelSelector:
+#          matchExpressions:
+#            - key: &quot;app&quot;
+#              operator: In
+#              values:
+#              - obEnv.envid
+#        topologyKey: &quot;kubernetes.io/hostname&quot;
+
+</code></pre>
+<p>Where:
+- <code>replicaCount</code> is the number of Order Balancer instances to be created.
+- <code>repository</code> is the repository name of the configured container registry.
+- <code>tag</code> is the version name that is used when you create a final Order Balancer image from the container.
+- <code>name</code> is the name of the imagepull-secret if it is configured. For more information about imagepull-secret, see "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/cloud-native-deploy/creating-asap-cloud-native-instance.html#GUID-B968CC19-B6CA-44CF-B43D-132E692D23CF">Creating Secrets</a>".
+- <code>envid</code> is the unique environment ID of the instance. This ID should include only the lower-case alphanumeric characters. For example, asapinstance1.
+- <code>port</code> is the port number of the WebLogic Server where Order Balancer is deployed.
+- <code>host</code> is the hostname of the podman container.
+- <code>domain</code> is the Order Balancer WebLogic domain name as configured in <code>ob.properties</code> while creating image.
+- <code>servicechannel.port</code> is the channel port when you create a channel in the WebLogic domain.
+- <code>service.port</code> is the admin port of the WebLogic Server.
+- <code>type</code> is the ingress controller type. This type can be TRAEFIK or GENERIC or OTHER.
+- <code>enabled</code> is the status of the ingress controller whether it is enabled or not. The value is true or false. By default, this is set to true.
+- <code>sslIncoming</code> is the status of the SSL/TLS configuration on incoming connections whether it is enabled or not. The configuration value is true or false. By default, this is set to false. If you want to set the value to true, create keys, certificate, and secret by following the instructions in the "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/cloud-native-deploy/integrating-asap.html#GUID-BB51B3EA-8683-469D-AA80-8DEE9A1B536F">Setting Up ASAP Cloud Native for Incoming Access</a>" section.
+- <code>adminsslhostname</code> is the host name of the https access.
+- <code>adminhostname</code> is the host name of the http access.
+- <code>secretName</code> is the secret name of the certificate created for SSL/TLS. For more information about creating keys and secret name, see "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/cloud-native-deploy/integrating-asap.html#GUID-BB51B3EA-8683-469D-AA80-8DEE9A1B536F">Setting Up ASAP Cloud Native for Incoming Access</a>."
+- <code>podAntiAffinity</code> can be uncommented to avoid co-locating two Order Balancer pods on the same node.
+- <code>requiredDuringSchedulingIgnoredDuringExecution</code> tells the Kubernetes Scheduler that it should never co-locate two Pods which have app label as <code>envid</code> in the domain defined by the <code>topologyKey.</code>
+- <code>topologyKey</code> with the value kubernetes.io/hostname indicates that the domain is an individual node.</p>
+<p>Note: <code>adminsslhostname</code> and <code>secretName</code> are applicable only if <code>sslIncoming</code> is set to true.</p>
+<ol>
+<li>Create PV and PVC for the Order Balancer instance. The pv path is used to store the wallet and logs of the ASAP instance added to the Order Balancer. The sample files are available in the <code>ob_cntk.zip</code> at <code>$OB_CNTK/samples/nfs/</code> file. Use the <code>hostPath</code> to access the specified path on the local nodes. Use <code>nfs</code> to access specified path on all the nodes.</li>
+</ol>
+<p>Note: Creating PV and PVC is a mandatory step for the Order Balancer instance.</p>
+<pre><code class="language-yaml"># This is pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: &lt;project&gt;-&lt;obEnv.envid&gt;-nfs-pv
+  labels:
+    type: local
+spec:
+  storageClassName: wallet
+  capacity:
+    storage: 10Gi
+  accessModes:    
+    - ReadWriteMany  
+# Valid values are Retain, Delete or Recycle  
+persistentVolumeReclaimPolicy: Retain  
+# hostPath:      
+  nfs:
+    server: &lt;server&gt;
+    path: &lt;path&gt;
+# This is pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: &lt;obEnv.envid&gt;-pvc
+  namespace: &lt;project&gt;
+spec:
+  storageClassName: wallet
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+</code></pre>
+<p>Where:
+- <code>&lt;project&gt;</code> is the namespace. In the above example, value is sr.
+- <code>&lt;obEnv.envid&gt;</code> is the environment ID provided in the <code>$OB_CNTK/samples/charts/traefik/values.yaml</code> file. In the above example, value is ob96.</p>
+<p>The below paths from both Order Balancer pods are mounted on to the PV path as:
+For wallet files: <code>/u01/oracle/user_projects/domains/&lt;domainName&gt;/oracle_communications/asap</code> to <code>PV_mount_path/asap</code></p>
+<p>For log files of each Order Balancer pod: <code>/u01/oracle/user_projects/domains/&lt;domainName&gt;/oracle_communications/logs</code> to <code>PV_mount_path/OB_pod_name/logs</code></p>
+<p>For example, <code>/mnt/OB96-1/logs and /mnt/OB96-0/logs</code></p>
+<ol>
+<li>Run the following command to create pv and pvc: 
+    <code>kubectl apply -f pv.yaml Kubectl apply -f pvc.yaml -n sr</code></li>
+<li>Verify that whether pv and pvc are created successfully or not by running the following command:
+    <code>kubectl get pv kubectl get pvc -n sr</code></li>
+<li>
+<p>Run the following command to create the Order Balancer instance:
+    <code>$OB_CNTK/scripts/create-instance.sh -p sr -i quick</code>
+The <code>create-instance.sh</code> script uses the Helm chart located in the <code>charts/ob</code> directory to deploy the Order Balancer image, service, and ingress controller for your instance. If the script fails, see "[Troubleshooting Issues with the Scripts]" before you make additional attempts.</p>
+</li>
+<li>
+<p>Validate the important input details such as Image name and tag, specification files used (Values Applied), hostname, and port for ingress routing:</p>
+</li>
+</ol>
+<pre><code class="language-bash">
+Calling helm lint
+==&gt; Linting ../charts/ob
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+Project Namespace : sr
+Instance Fullname : sr-quick
+NAME              : sr-quick
+LB_PORT           : 30305
+LAST DEPLOYED     : Timestamp
+NAMESPACE         : sr
+STATUS            : deployed
+REVISION          : 1
+TEST SUITE        : n/a
+</code></pre>
+<p>If PV/PVC is not configured before, the Pod will be in the pending state as shown below:</p>
+<pre><code class="language-bash">kubectl describe pod &lt;pod-name&gt; -n sr
+Events:
+  Type     Reason            Age    From               Message
+  ----     ------            ----   ----               -------
+  Warning  FailedScheduling  2m31s  default-scheduler  persistentvolumeclaim &quot;sr-pvc&quot; not found
+  Warning  FailedScheduling  2m31s  default-scheduler  persistentvolumeclaim &quot;sr-pvc&quot; not found
+</code></pre>
+<ol>
+<li>When the Pod state shows READY 1/1, your Order Balancer instance is up and running.</li>
+</ol>
+<p>The base hostname required to access this instance using HTTP is <code>adminobhostnonssl.asap.org</code>. See "<a href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>" for details about hostname resolution.</p>
+<p>The <code>create-instance</code> script prints out the following valuable information that you can use when you work with your Order Balancer domain:</p>
+<ul>
+<li>The URL for accessing the WebLogic UI, which is provided through the ingress controller at host: <code>http://adminobhostnonssl.asap.org:30305/console</code>.</li>
+</ul>
+<h4 id="validating-the-order-balancer-instance">Validating the Order Balancer Instance</h4>
+<p>After creating an instance, you can validate it by accessing the WebLogic Server console.
+Run the following command to display the Pod details of the Order Balancer instances that you have created:</p>
+<pre><code class="language-bash">$ kubectl get all -n OB_namespace
+NAME                   READY        STATUS    RESTARTS   AGE
+pod/ob96-0              1/1        Running        0      24h
+pod/ob96-1              1/1        Running        0      24h
+NAME                     TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)            AGE
+service/ob96-hlservice   ClusterIP   None           &lt;none&gt;    6723/TCP,6724/TCP   3d18h
+service/ob96-service     ClusterIP   10.106.240.147 &lt;none&gt;    6723/TCP,6724/TCP   3d18h
+NAME                    READY   AGE
+statefulset.apps/ob96   2/2     3d18h
+</code></pre>
+<p>NOTE: After the Order Balancer instances are created, it may take a few minutes to start Order Balancer servers.</p>
+<p>To access WebLogic Remote Console outside the cluster, enter the following URL in the browser:</p>
+<p>For non-SSL:
+<code>http://adminhostnonssl.asap.org:nonSSL_Traefik_Port/console</code></p>
+<p>For SSL:
+<code>https://adminhostssl.asap.org:SSL_Traefik_port/console</code></p>
+<p>The nonSSL_Traefik_Port and SSL_Traefik_port are mentioned in <code>$ASAP_CNTK/samples/charts/traefik/values.yaml</code>.</p>
+<p>The system prompts for the user name and password. Enter the WebLogic domain user name and password.
+Update the hosts file with the <code>hostname</code> and <code>master_ip</code> address on the machine where the URL is getting accessed.</p>
+<p>Note: The hosts file is located in <code>/etc/hosts</code> on Linux and MacOS machines and in <code>C:\Windows\System32\drivers\etc\hosts</code> on Windows machines.
+<code>ip_address adminhostnonssl.asap.org</code></p>
+<h4 id="scaling-the-order-balancer-instance">Scaling the Order Balancer Instance</h4>
+<p>You can create multiple instances of Order Balancer by setting the <code>replicaCount</code> accordingly in the <code>values.yaml</code> file. The Order Balancer helm chart templates create multiple instances as StatefulSet pods. The unique pod names are automatically configured by suffixing an ordinal number with the StatefulSet Name. For example, if the StatefulSet Name is OBapp, the pod names are OBapp-0, OBapp-1 and so on. The StatefulSet policy ensures that only one pod with the given name is run at a given point of time.</p>
+<p>The number of Order Balancer instances can be scaled up or down by modifying the replicas count in StatefulSet:
+<code>kubectl scale statefulsets stateful_set_name --replicas=replica_count</code></p>
+<p>Where
+<code>stateful_set_name</code> is the name of the StatefulSet. In this example, it is OBapp.
+<code>replica_count</code> is the number of the Order Balancer instances to be created.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/" class="btn btn-neutral float-left" title="Creating an Order Balancer Cloud Native Image"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/" class="btn btn-neutral float-right" title="Deleting and Recreating Your Order Balancer Instance">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

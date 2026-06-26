@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Planning and Validating Your Cloud Environment - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Planning and Validating Your Cloud Environment";
+        var mkdocs_page_input_path = "src/Planning and Validating Your Cloud Environment.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Planning and Validating Your Cloud Environment</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#planning-your-cloud-native-environment">Planning Your Cloud Native Environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-your-kubernetes-cluster">Setting Up Your Kubernetes Cluster</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#asap-server-hardware-requirements">ASAP Server Hardware Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hardware-sizing-requirements">Hardware Sizing Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#required-components-for-asap-and-order-balancer-cloud-native">Required Components for ASAP and Order Balancer Cloud Native</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#synchronizing-time-across-servers">Synchronizing Time Across Servers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-container-image-management">About Container Image Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-helm">Installing Helm</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-load-balancing-and-ingress-controller">About Load Balancing and Ingress Controller</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-domain-name-system-dns">Using Domain Name System (DNS)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring-kubernetes-persistent-volumes">Configuring Kubernetes Persistent Volumes</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASAP</li>
+      <li class="breadcrumb-item active">Planning and Validating Your Cloud Environment</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="planning-and-validating-your-cloud-environment">Planning and Validating Your Cloud Environment</h3>
+<h4 id="planning-your-cloud-native-environment">Planning Your Cloud Native Environment</h4>
+<p>As part of preparing your environment for ASAP cloud native, you choose, install, and set up various components and services in ways that are best suited for your cloud native environment.</p>
+<h4 id="setting-up-your-kubernetes-cluster">Setting Up Your Kubernetes Cluster</h4>
+<p>For ASAP cloud native, Kubernetes worker nodes must be capable of running Linux 8.x pods with software compiled for Intel 64-bit cores. A reliable cluster must have multiple worker nodes spread over separate physical infrastructure and a very reliable cluster must have multiple master nodes spread over separate physical infrastructure.</p>
+<p>The following diagram illustrates the Kubernetes cluster and the components that it interacts with.</p>
+<p>Figure 2-1 Kubernetes Cluster</p>
+<p><img alt="Description of Figure 2-1 follows" src="../../images/kubernetes-cluster.gif" /></p>
+<p>The ASAP cloud native instance, for which specification files are provided with the toolkit, requires up to 16 GB of RAM and 2 CPUs, in terms of Kubernetes worker node capacity.</p>
+<h4 id="asap-server-hardware-requirements">ASAP Server Hardware Requirements</h4>
+<p>The ASAP hardware requirements described in this section are based on the number of ASDLs processed per second.
+Table 3-1 provides recommended system hardware requirements for ASAP installed on an Oracle Linux platform.</p>
+<p>Table 3-1 Hardware Requirements for Linux</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Software Components</th>
+<th style="text-align: left;">Recommended System Linux 2 threads per core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ASAP Server and WebLogic Server</td>
+<td style="text-align: left;">4 cores, 16 GB RAM</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Database</td>
+<td style="text-align: left;">4 cores, 32 GB RAM</td>
+</tr>
+<tr>
+<td style="text-align: left;">External Storage for Oracle Datafiles</td>
+<td style="text-align: left;">28 x 73 GB (RAID 1+0)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="hardware-sizing-requirements">Hardware Sizing Requirements</h4>
+<p>Table 3-2 describes the allocation of hardware sizing.
+Table 3-2 Hardware Sizing Requirements</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Number of ASDLs</th>
+<th style="text-align: left;">Recommended Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Less than 40 ASDLs/second</td>
+<td style="text-align: left;">1 OCPU and 16 GB RAM</td>
+</tr>
+<tr>
+<td style="text-align: left;">Up to 80 ASDLs/second</td>
+<td style="text-align: left;">2 OCPU and 32 GB RAM</td>
+</tr>
+</tbody>
+</table>
+<h4 id="required-components-for-asap-and-order-balancer-cloud-native">Required Components for ASAP and Order Balancer Cloud Native</h4>
+<p>To run, manage, and monitor the ASAP and Order Balancer cloud native deployment, the following components and capabilities are required. These must be configured in the cloud environment:</p>
+<ul>
+<li>Kubernetes Cluster</li>
+<li>Container Image Management</li>
+<li>Helm</li>
+<li>Load Balancer</li>
+<li>Domain Name System (DNS)</li>
+<li>Persistent Volumes</li>
+<li>Secrets Management</li>
+<li>Kubernetes Monitoring Toolchain</li>
+<li>Application Logs and Metrics Toolchain</li>
+</ul>
+<p>For details about the required versions of these components, see
+Table 1-1 Supported Common Software for Cloud Native and Traditional Deployment</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Software</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ant</td>
+<td style="text-align: left;">1.10.15</td>
+<td style="text-align: left;">Ant is required for direct ant-based integration with the various tools in the ASAP SDK including the Compliance tool for Cartridge Deployment using CMT.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Grafana</td>
+<td style="text-align: left;">12.3.2</td>
+<td style="text-align: left;">Optional.<br><br>This is a monitoring tool.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Java</td>
+<td style="text-align: left;">21.0.9</td>
+<td style="text-align: left;">Java 21 is required for WebLogic Server and JNEP.<br><br>Java 21 is required for ASAP server components.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Database (installed as Container Database)</td>
+<td style="text-align: left;">19c and 26ai</td>
+<td style="text-align: left;">Enterprise Edition or Oracle OCI Database Service: Enterprise Edition High Performance / Oracle Grid Infrastructure.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Database Client</td>
+<td style="text-align: left;">19.29.0.0.0 (64-bit)</td>
+<td style="text-align: left;">Not applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Database Release Updates (RU), revisions and patches</td>
+<td style="text-align: left;">19.29.0.0.0</td>
+<td style="text-align: left;">Oracle recommends the latest available Critical Patch Updates(CPU) to avoid security issues.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Fusion Middleware</td>
+<td style="text-align: left;">Oracle WebLogic Server 14.1.2</td>
+<td style="text-align: left;">Not applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Fusion Middleware Patches</td>
+<td style="text-align: left;">October 2025 CPU or later</td>
+<td style="text-align: left;">See "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/compatibility-matrix/index.html#GUID-4F8E44D6-2290-4223-BBC5-4E75DE756CE9">About Critical Patch Updates</a>" for more information on CPU.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Linux</td>
+<td style="text-align: left;">Linux 8: Oracle Linux 8.10<br><br>Linux 9: Oracle Linux 9.7</td>
+<td style="text-align: left;">Oracle recommends the latest available update.<br><br>Oracle products certified on Oracle Linux are also supported on Red Hat Enterprise Linux due to implicit compatibility between both distributions. Oracle does not run any additional testing on Red Hat Enterprise Linux products.<br><br>Note: Oracle Applications are developed and tested on Oracle Linux, which is optimized for performance, stability and security.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oracle Communications Service Catalog and Design - Design Studio</td>
+<td style="text-align: left;">8.3.0.1</td>
+<td style="text-align: left;">See Service Catalog and Design Compatibility Matrix for details.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prometheus</td>
+<td style="text-align: left;">3.9.1</td>
+<td style="text-align: left;">Optional.<br><br>This is a monitoring tool.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Web Browsers</td>
+<td style="text-align: left;">Google Chrome 144.0.7559.97 or later<br><br>Mozilla Firefox 147.7.0esr or later<br><br>Microsoft Edge 144.0.3719.92 or later</td>
+<td style="text-align: left;">Not applicable.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recommended Cloud Native Technology Stack</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">The following table lists the recommended versions of the software supported with ASAP cloud native deployments.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Oracle recommends that if you use any of the components listed in this table, then use only the versions of other components listed in this table.</p>
+<p>Table 1-2 Recommended Versions of software supported for ASAP Cloud Native Deployment Package 8.0</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Software</th>
+<th style="text-align: left;">Versions</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Kubernetes</td>
+<td style="text-align: left;">1.34.2</td>
+<td style="text-align: left;">See "<a href="https://docs.oracle.com/en/industries/communications/asap/8.0/compatibility-matrix/index.html#GUID-8817C7D6-1C17-4FE5-B6BF-595CFED9F355">Container Platforms for ASAP Cloud Native</a>" for further details.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cluster Networking Interface (CNI)</td>
+<td style="text-align: left;">Flannel 0.14.0 or later</td>
+<td style="text-align: left;">Not applicable</td>
+</tr>
+<tr>
+<td style="text-align: left;">Helm</td>
+<td style="text-align: left;">3.19.0</td>
+<td style="text-align: left;">Not applicable</td>
+</tr>
+<tr>
+<td style="text-align: left;">Podman</td>
+<td style="text-align: left;">4.9.4 or later</td>
+<td style="text-align: left;">Not applicable</td>
+</tr>
+<tr>
+<td style="text-align: left;">Traefik Ingress Controller</td>
+<td style="text-align: left;">2.10.6 or later</td>
+<td style="text-align: left;">For details, see: <a href="https://artifacthub.io/packages/helm/traefik/traefik">https://artifacthub.io/packages/helm/traefik/traefik</a>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="synchronizing-time-across-servers">Synchronizing Time Across Servers</h4>
+<p>It is important that you synchronize the date and time across all machines that are involved in testing, including client test drivers and Kubernetes worker nodes. Oracle recommends that you do this using Network Time Protocol (NTP), rather than manual synchronization, and strongly recommends it for Production environments. Synchronization is important in inter-component communications and in capturing accurate run-time statistics.</p>
+<h4 id="about-container-image-management">About Container Image Management</h4>
+<p>Oracle highly recommends that you create a private container repository and ensure that all nodes have access to that repository. The image is saved in this repository and all nodes would then have access to the repository. This may require networking changes (such as routes and proxy) and include authentication for logging in to the repository. Oracle recommends that you choose a repository that provides centralized storage and management for the container image.</p>
+<p>Failing to ensure that all nodes have access to a centralized repository will mean that image has to be synced to the hosts manually or through custom mechanisms (for example, using scripts), which are error-prone operations as worker nodes are commissioned, decommissioned, or even rebooted. When an image on a particular worker node is not available, the pods using that image are either not scheduled to that node, wasting resources, or fail on that node. If image names and tags are kept constant (such as myapp:latest), the pod may pick up a pre-existing image of the same name and tag, leading to unexpected and hard to debug behaviors.</p>
+<h4 id="installing-helm">Installing Helm</h4>
+<p>ASAP cloud native requires Helm, which delivers reliability, productivity, consistency, and ease of use.</p>
+<p>In an ASAP cloud native environment, using Helm enables you to achieve the following:</p>
+<ul>
+<li>You can apply custom domain configuration by using a single and consistent mechanism, which leads to an increase in productivity. You no longer need to apply configuration changes through multiple interfaces such as WebLogic Console, WLST, and WebLogic Server MBeans.</li>
+<li>Changing the ASAP domain configuration in the traditional installations is a manual and multi-step process that may lead to errors. This can be eliminated with Helm because of the following features:<ul>
+<li>Helm Lint allows pre-validation of syntax issues before changes are applied</li>
+<li>Multiple changes can be pushed to the running instance with a single upgrade command</li>
+<li>Configuration changes may map to updates across multiple Kubernetes resources (such as domain resources, config maps, and so on). With Helm, you merely update the Helm release and its responsibility to determine which Kubernetes resources are affected.</li>
+</ul>
+</li>
+<li>Including configuration in Helm charts allows the content to be managed as code, through source control, which is a fundamental principle of modern DevOps practices.</li>
+</ul>
+<p>To co-exist with older Helm versions in production environments, ASAP requires Helm 3.15.3 or later saved as helm in PATH.</p>
+<p>The following text shows sample commands for installing and validating Helm:</p>
+<pre><code class="language-bash">$ cd some-tmp-dir 
+$ wget https://get.helm.sh/helm-v3.15.3-linux-amd64.tar.gz 
+
+$ tar -zxvf helm-v3.15.3-linux-amd64.tar.gz
+#### Find the helm binary in the unpacked directory and move it to its desired destination. You need root user. 
+
+$ sudo mv linux-amd64/helm /usr/local/bin/helm   
+#### Optional: If access to the deprecated Helm repository &quot;stable&quot; is required, uncomment and run # helm repo add stable https://charts.helm.sh/stable   
+
+#### verify Helm version 
+$ helm version
+version.BuildInfo{Version:&quot;v3.15.3&quot;, GitCommit:&quot;c4e74854886b2efe3321e185578e6db9be0a6e29&quot;, GitTreeState:&quot;clean&quot;, GoVersion:&quot;go1.14.11&quot;}
+</code></pre>
+<p>Helm leverages kubeconfig for users running the <code>helm</code> command to access the Kubernetes cluster. By default, this is <code>$HOME/.kube/config</code>. Helm inherits the permissions set up for this access into the cluster. You must ensure that if RBAC is configured, then sufficient cluster permissions are granted to users running Helm.</p>
+<h4 id="about-load-balancing-and-ingress-controller">About Load Balancing and Ingress Controller</h4>
+<p>ASAP cloud native instance is running in Kubernetes. To access application endpoints, you must enable HTTP/S connectivity to the cluster through an appropriate mechanism. This mechanism must be able to route traffic to the ASAP cloud native instance in the Kubernetes cluster.</p>
+<p>For ASAP cloud native, an ingress controller is required to expose appropriate services from the ASAP cluster and direct traffic appropriately to the cluster members. <strong>An external load balancer is an optional add-on.</strong></p>
+<p>The ingress controller must support:</p>
+<ul>
+<li>Sticky routing (based on standard session cookie)</li>
+<li>SSL termination and injecting headers into incoming traffic</li>
+</ul>
+<p>Examples of such ingress controllers include Traefik, Voyager, and Nginx. The ASAP cloud native toolkit provides samples and documentation that use Traefik as the ingress controller.</p>
+<p>An external load balancer serves to provide a highly reliable single-point access into the services exposed by the Kubernetes cluster. In this case, this would be the NodePort services exposed by the ingress controller on behalf of the ASAP cloud native instance. <strong>Using a load balancer removes the need to expose Kubernetes node IPs to the larger user base</strong>, and insulates the users from changes (in terms of nodes appearing or being decommissioned) to the Kubernetes cluster. It also serves to enforce access policies.</p>
+<h4 id="using-domain-name-system-dns">Using Domain Name System (DNS)</h4>
+<p>A Kubernetes cluster can have many routable entry points. Common choices are:</p>
+<ul>
+<li>External load balancer (IP and port)</li>
+<li>Ingress controller service (master node IPs and ingress port)</li>
+<li>Ingress controller service (worker node IPs and ingress port)</li>
+</ul>
+<p>ASAP cloud native requires hostnames to be mapped to routable entrypoints into the Kubernetes cluster. Regardless of the actual entry points (external load balancer, Kubernetes master node, or worker nodes), users who need to communicate with the ASAP cloud native instances require name resolution.</p>
+<p>The access hostnames take the prefix.domain form. prefix and domain are determined by the specifications of the ASAP cloud native configuration for a given deployment. prefix is unique to the deployment, while domain is common for multiple deployments.</p>
+<p>The default domain in ASAP cloud native toolkit is <code>asap.org</code>.</p>
+<p>For a particular deployment, as an example, this results in the following addresses:</p>
+<ul>
+<li><code>dev1.wireless.asap.org</code> (for HTTP access)</li>
+<li><code>admin.dev1.wireless.asap.org</code> (for WebLogic Console access)</li>
+</ul>
+<p>These "hostnames" must be routable to the entry point of your Ingress Controller or Load Balancer. For a basic validation, on the systems that access the deployment, edit the local hosts file to add the following entry:</p>
+<pre><code class="language-bash">&lt;ip_address&gt;  dev1.wireless.asap.org   admin.dev1.wireless.asap.org  t3.dev1.wireless.asap.org
+</code></pre>
+<p><strong>However, the solution of editing the hosts file is not easy to scale and coordinate across multiple users and multiple access environments. A better solution is to leverage DNS services at the enterprise level.</strong></p>
+<h4 id="configuring-kubernetes-persistent-volumes">Configuring Kubernetes Persistent Volumes</h4>
+<p>Typically, runtime artifacts in ASAP cloud native are created within the respective pod filesystems. As a result, they are lost when the pod is deleted. These artifacts include application logs and WebLogic Server logs.</p>
+<p>While this impermanence may be acceptable for highly transient environments, it is typically desirable to have access to these artifacts outside of the lifecycle of the ASAP could native instance. It is also highly recommended to deploy a toolchain for logs to provide a centralized view with a dashboard. To allow for artifacts to survive independent of the pod, ASAP cloud native allows for them to be maintained on Kubernetes Persistent Volumes.</p>
+<p>Regardless of the persistence provider chosen, persistent volumes for ASAP cloud native use must be configured:
+- With accessMode ReadWriteMany
+- With a capacity to support the intended workload</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../About-the-ASAP-Cloud-Native-Deployment/" class="btn btn-neutral float-left" title="About the ASAP Cloud Native Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/" class="btn btn-neutral float-right" title="Creating an ASAP Cloud Native Image">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../About-the-ASAP-Cloud-Native-Deployment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

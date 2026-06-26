@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Working with Cartridges - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Working with Cartridges";
+        var mkdocs_page_input_path = "src/Working with Cartridges.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Working with Cartridges</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h4 id="working-with-cartridges">Working with Cartridges</h4>
+<p>An ASAP cartridge provides specific domain behavior on top of the core ASAP software. This domain behavior includes a part of, or all services on a network element (NE), element management system (EMS), or network management system (NMS).</p>
+<p>To provision orders to network elements, you install cartridges in the ASAP container that are available in the <code>$ASAP_VOLUME/cartridges/</code> directory. After installing the cartridges, you must exit the ASAP container by using the <code>exit</code> command.</p>
+<p><strong>To install cartridges:</strong></p>
+<ol>
+<li>Copy the required cartridges to the <code>$asap-img-builder/cartridges</code> directory.</li>
+<li>
+<p>Run the following command to copy installers and cartridges to the volume:</p>
+<p><code>$asap-img-builder/upgrade-asap-image.sh</code></p>
+</li>
+<li>
+<p>Create a new container with the ASAP image created by the <code>build-asap-images.sh</code> script using the following command:</p>
+<p><code>podman run --name $ASAP_CONTAINER -dit -h $PODMAN_HOSTNAME -p $WEBLOGIC_PORT -v $ASAP_VOLUME:/$ASAP_VOLUME ASAP-BASE-IMAGE</code></p>
+<p><code>docker run --name $ASAP_CONTAINER -dit -h $DOCKER_HOSTNAME -p $WEBLOGIC_PORT -v $ASAP_VOLUME:/$ASAP_VOLUME ASAP-BASE-IMAGE</code></p>
+<p>For example: <code>podman run --name asap-c -dit -h asaphost -p 7890 -v podmanhost_volume:/podmanhost_volume asapcn:8.0.0.0</code>
+<strong>The container is created with asap-c.</strong></p>
+</li>
+<li>
+<p>Enter the ASAP container using the following command:</p>
+<p><code>podman exec -it CONTAINER_NAME bash</code>
+where <code>CONTAINER_NAME</code> is the $ASAP_CONTAINER. For example, asap-c.
+You have entered the ASAP container.</p>
+</li>
+<li>
+<p>Start ASAP and WebLogic Server using the <strong><code>startALL.sh</code></strong> script.
+   NOTE: SARM does not start successfully unless at least one cartridge is installed.
+   During installation of the first cartridge, <strong>after running the <code>startALL.sh</code> script, the console may display messages indicating that the ASAP servers did not start successfully. This is an expected behavior during the initial installation. You can ignore the messages</strong> and the installation can proceed with the steps to follow.</p>
+</li>
+<li>
+<p>Navigate to the ASAP installation directory using <code>cd $ASAP_BASE</code>.</p>
+</li>
+<li>Source the environment profile using the <code>source Environment_Profile</code> script.</li>
+<li>Verify the ASAP server status using the <code>status</code> command.</li>
+<li>Install the cartridges present in the <code>/podmanhost_volume/cartridges</code> directory.</li>
+<li>Exit the ASAP container by using the following command:
+    <code>exit</code></li>
+<li>
+<p>After you install the cartridge, create an image from the staging container using the following command:
+    <code>podman commit CONTAINER_NAME imagename:version</code>
+    <code>docker commit CONTAINER_NAME imagename:version</code>
+    Where</p>
+<ul>
+<li><code>CONTAINER_NAME</code> is the $ASAP_CONTAINER.</li>
+<li><code>version</code> is the version of the ASAP image.</li>
+</ul>
+</li>
+<li>
+<p>Stop and remove the containers using the following commands:
+    <code>podman stop CONTAINER_NAME</code>
+    <code>docker stop CONTAINER_NAME</code>
+    where <code>CONTAINER_NAME</code> is the $ASAP_CONTAINER.</p>
+</li>
+</ol>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

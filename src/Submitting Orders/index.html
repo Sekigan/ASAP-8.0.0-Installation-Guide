@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Submitting Orders - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Submitting Orders";
+        var mkdocs_page_input_path = "src/Submitting Orders.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Submitting Orders</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#accessing-the-oca-client">Accessing the OCA Client</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASAP</li>
+      <li class="breadcrumb-item active">Submitting Orders</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="submitting-orders">Submitting Orders</h1>
+<p>After you install ASAP, install the POTS cartridge. You can submit ASAP orders over JMS and Web Services.</p>
+<ul>
+<li>To submit ASAP orders over JMS, use an external runJMSclient. The endpoint must be as follows:
+  <code>System.${ENV_ID}.ApplicationType.ServiceActivation.Application.1-0;7-4;ASAP.Comp.MessageQueue</code>
+  The connection factory's provider URL must be as follows:</li>
+</ul>
+<p>For non-SSL:
+  <code>http://adminhostnonssl.asap.org:30305/</code></p>
+<p>For SSL:
+  <code>https://adminhostssl.asap.org:30443/</code></p>
+<ul>
+<li>To submit ASAP orders over Web Services, type the following URL in the web browser and access the ASAP Web Services WSDL:</li>
+</ul>
+<p><code>http://adminhostnonssl.asap.org:30305/env_id/Oracle/CGBU/Mslv/Asap/Ws?WSDL</code></p>
+<p>HTTP protocol is used for a handshake with the application server to authenticate and request a web service client stub, which is used as the launch pad to talk to Web Services. Then the client can communicate with the ASAP Web Services using HTTP or HTTPS protocols.</p>
+<h3 id="accessing-the-oca-client">Accessing the OCA Client</h3>
+<p>Similar to the ASAP traditional deployment, ASAP cloud native also connects through the Order Control Application (OCA) client using thick client.</p>
+<p>To configure the OCA client:</p>
+<ol>
+<li>
+<p>Add an entry to the <code>hosts</code> file to the machine (Linux or Windows) from where you are planning to launch the OCA client to resolve DNS. This entry contains the IP address of the master node and hostname of the ASAP instance running in a cloud native. You can obtain the hostname from the <code>values.yaml</code> file.</p>
+<p>The hosts configuration file is located at:</p>
+<ul>
+<li>On Windows: <code>C:\Windows\System32\drivers\etc\hosts</code></li>
+<li>On Linux: <code>/etc/hosts</code></li>
+</ul>
+<p>For example:<br />
+<code>&lt;Kubernetes_Cluster_Master_IP&gt; hostname provided in the values.yaml file</code></p>
+</li>
+<li>
+<p>Update the <code>TBL_SERVER_INFO</code> table in the CTRL database.
+    The hostname column contains the hostname mentioned in the <code>values.yaml</code> file and <code>INFO</code> column contains <code>HTTPS:&lt;ingressport&gt;</code>.</p>
+<p>For example:</p>
+</li>
+</ol>
+<pre><code>update tbl_server_info set HOSTNAME='adminhost.asap.org'; 
+update tbl_server_info set INFO='HTTP:30305'; 
+update tbl_server_info set INFO='HTTPS:30443';
+</code></pre>
+<p>Note : Based on the Ingressroute configuration use <code>HTTP</code> or <code>HTTPS</code>. The port number is the traefik nodeport.</p>
+<ol>
+<li>Update the <strong>oca.cfg</strong> file. See, <a href="https://docs.oracle.com/pls/topic/lookup?ctx=en/industries/communications/asap/8.0/cloud-native-deploy&amp;id=ASPOC-GUID-F0788F9F-BBD2-4994-B4A2-A026E01C9820">Introduction to the Order Control Application</a> for more details.</li>
+<li>Launch the thick client once the database is updated.
+ Note: Repeat Steps 1 and 2, and create separate session blocks for each ASAP server to enable access to multiple ASAP environments from the same OCA. This allows you to identify which work order is processed by a specific ASAP instance.</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Validating%20the%20ASAP%20Instance/" class="btn btn-neutral float-left" title="Validating the ASAP Instance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Next%20Steps/" class="btn btn-neutral float-right" title="Next Steps ASAP">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Validating%20the%20ASAP%20Instance/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Next%20Steps/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

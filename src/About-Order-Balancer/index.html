@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>About Order Balancer - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "About Order Balancer";
+        var mkdocs_page_input_path = "src/About-Order-Balancer.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">About Order Balancer</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Image/">Creating an Order Balancer Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Order Balancer</li>
+      <li class="breadcrumb-item active">About Order Balancer</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Order Balancer primarily consists of Order Balancer Queue, a queue where the requests from upstream systems are sent to. Order Balancer routes the requests to the registered ASAP instances and monitors the status of the instances.</p>
+<p>The requests that Order Balancer receives and processes are categorized as follows:
+- <strong>Non-Sticky:</strong> These are requests that are server-independent. For example, <code>createOrderByValue</code> is a non-sticky request.
+- <strong>Sticky:</strong> These are requests that are server-dependent. For example, <code>suspendOrderByKey</code> is a sticky request.</p>
+<p>Order Balancer performs the following order management functions:
+- <strong>Even distribution</strong> of create type orders (non-sticky) among the member instances. Order Balancer distributes orders to ASAP instances in a <strong>round-robin fashion</strong>.
+- <strong>Zero order loss</strong>: When sending an order to a member instance fails, Order Balancer marks the member instance as down and attempts to send the same order to a member instance that is available.
+- <strong>Order dependency:</strong> Order Balancer saves the details of the Order ID of an order and the instance that processed the order in the database. It caches these details locally on the server and to a database. The modify or rollback orders (sticky orders) are sent to the member instance fetched from the database for the current Order ID.</p>
+<p>Order Balancer performs the following ASAP member instance management functions:
+- Add a new member instance to or remove an existing member instance from Order Balancer.
+- <strong>Instance health</strong>: When the sending of an order to a member instance fails, Order Balancer marks the member instance as down and polls for its state periodically. When the instance is reachable, Order Balancer automatically sets the member instance state to up and starts routing orders to it.
+- <strong>Instance pausing</strong>: Pause and resume order flow to a specific instance for maintenance purposes.</p>
+<p>The ASAP instances that you want to register with Order Balancer should have the same configuration and cartridges. Any instance can service any non-sticky request</p>
+<h3 id="connecting-order-balancer-with-multiple-asap-instances-to-a-remote-application">Connecting Order Balancer with Multiple ASAP Instances to a Remote Application</h3>
+<p>Oracle recommends that you create an SAF agent between Order Balancer, all ASAP WebLogic Servers, and the remote application WebLogic Server. Oracle recommends this SAF agent for JMS to ensure reliable communication.</p>
+<p>Figure 6-1 illustrates SAF configuration between Order Balancer with multiple ASAP instances and a client on a remote application. In this illustration, OSM is used as an example of a remote application.</p>
+<p><img alt="Figure 6-1" src="../../images/ob-asap-deploy.gif" /> Connecting Order Balancer with Multiple ASAP Instances to a Remote Application</p>
+<p>In this example, an OSM SAF agent sends requests to the Order Balancer request queue. Based on the order type in the requests, Order Balancer routes the requests to the message queue of the corresponding ASAP member instance. The ASAP instance processes the requests and returns responses through the ASAP SAF agent to the OSM reply-to queue. In case of exceptions in Order Balancer, such as ASAP server is down, and invalid order sent in the request, Order Balancer sends the error responses from Response Queue with an SAF agent to OSM reply-to-queue. Each ASAP member instance sends work order state changes from their respective JSRP XVTEventTopic through a JMS bridge with an SAF agent to the OSM event queue.</p>
+<p>For detailed instructions on creating SAF and JMS bridges between ASAP and OSM, see the Configuring WebLogic Resources for OSM Integration With ASAP And UIM On Different Domains (Doc ID 1431235.1) knowledge article on My Oracle Support. This article is applicable to any remote application that uses a WebLogic JMS server to send and receive web service messages or JMS messages.</p>
+<h3 id="setting-up-order-balancer-for-high-availability">Setting Up Order Balancer for High Availability</h3>
+<p>You can set up and run multiple Order Balancer instances for high availability. Each Order Balancer handles the requests for all the registered ASAP instances. For example, if two independent Order Balancer instances are running, Order Balancer OB1 fails, the other Order Balancer OB2 distributes the requests to all the registered ASAP instances. All the Order Balancer instances use the same database.</p>
+<p>Order Balancer uses the JPA shared cache for data consistency across all the Order Balancer instances and automatically synchronizes the member instance data updates. It automatically refreshes the instances at configurable interval across multiple Order Balancer instances. You use the optional configuration parameter CACHE_EXPIRY to define the duration in seconds that JPA shared cache lives. After the duration, cached queries and entities expire and are refreshed upon next access. If an Order Balancer updates the instance data, it takes that CACHE_EXPIRY duration for the other Order Balancer instances to reflect the change. To have optimum synchronization, <strong>you can choose the CACHE_EXPIRY duration based on two factors:</strong></p>
+<ul>
+<li><strong>How often do you perform administrative tasks?</strong></li>
+<li><strong>What is the optimum duration that data can be inconsistent across Order Balancer instances?</strong></li>
+</ul>
+<p>When you pause the ASAP instances for maintenance activities such as ASAP upgrade, you must wait until the CACHE_EXPIRY interval expires after the pause request and before proceeding with the maintenance activity on ASAP for the changes to reflect in all the Order Balancer instances.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Next%20Steps/" class="btn btn-neutral float-left" title="Next Steps ASAP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Planning%20you%20installation%20Order%20Balancer/" class="btn btn-neutral float-right" title="Planning your installation Order Balancer">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Next%20Steps/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Planning%20you%20installation%20Order%20Balancer/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

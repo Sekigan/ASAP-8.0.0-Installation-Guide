@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Creating an Order Balancer Cloud Native Image - ASAP 8.0.0</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../my-css.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating an Order Balancer Cloud Native Image";
+        var mkdocs_page_input_path = "src/Creating an Order Balancer Cloud Native Image.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ASAP 8.0.0
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ASAP%208.0.0%20Installation%20Guide/">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Plan/">Plan</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASAP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About-the-ASAP-Cloud-Native-Deployment/">About the ASAP Cloud Native Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20and%20Validating%20Your%20Cloud%20Environment/">Planning and Validating Your Cloud Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../database.md">Database Installation & Creation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Image/">Creating an ASAP Cloud Native Image</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20ASAP%20Cloud%20Native%20Instance/">Creating an ASAP Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Validating%20the%20ASAP%20Instance/">Validating the ASAP Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Submitting%20Orders/">Submitting Orders</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Next%20Steps/">Next Steps ASAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Order Balancer</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../About-Order-Balancer/">About Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Planning%20you%20installation%20Order%20Balancer/">Planning your installation Order Balancer</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Creating an Order Balancer Cloud Native Image</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/">Creating an Order Balancer Cloud Native Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Deleting%20and%20Recreating%20Your%20Order%20Balancer%20Instance%20%26%20Troubleshooting%20Issues%20with%20the%20Scripts/">Deleting and Recreating Your Order Balancer Instance</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ASAP 8.0.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Order Balancer</li>
+      <li class="breadcrumb-item active">Creating an Order Balancer Cloud Native Image</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Order Balancer cloud native image is required to create and manage Order Balancer cloud native instances. This chapter describes creating an Order Balancer cloud native image.</p>
+<p>Order Balancer cloud native instance requires a <strong>container image and access to the database</strong>. The Order Balancer image is built on top of a Linux base image and the Order Balancer image builder script adds Java, WebLogic Server components, and Order Balancer.</p>
+<p>The Order Balancer cloud native image is created using the Order Balancer cloud native builder toolkit. You should run the Order Balancer cloud native builder toolkit on Linux and it should have access to the local Podman.</p>
+<h3 id="downloading-the-asap-cloud-native-artifacts"><a href="../Downloading%20the%20ASAP%20Cloud%20Native%20Artifacts/">Downloading the ASAP Cloud Native Artifacts</a></h3>
+<p>The Order Balancer cloud native builder kit contains:</p>
+<ul>
+<li>The scripts to install the required packages.</li>
+<li>The scripts to install database client, install Java, WebLogic Server, and ASAP.</li>
+</ul>
+<h3 id="prerequisites-for-creating-an-order-balancer-image"><a href="../Prerequisites%20for%20Creating%20an%20Order%20Balancer%20Image/">Prerequisites for Creating an Order Balancer Image</a></h3>
+<h3 id="creating-the-order-balancer-cloud-native-image">Creating the Order Balancer Cloud Native Image</h3>
+<p>The Order Balancer cloud native image builder tool builds the Order Balancer cloud native image, which is then pushed to the repository and deployed in the Kubernetes cluster. If the repository is not available, you copy the image to all the worker nodes of the cluster.</p>
+<p>The ASAP installer is packaged with the Order Balancer cloud native image builder and the cloud native toolkit.
+Note: After you download the installer, locate the Order Balancer cloud native image builder <code>asap-img-builder.zip</code> in the ASAP cloud native tar file.</p>
+<p>To create the Order Balancer cloud native image:</p>
+<ol>
+<li>Copy the <code>asap-img-builder.zip</code> file to the machine where the Podman is running.</li>
+<li>Extract the contents of the zip file by running the following command:
+    <code>unzip asap-img-builder.zip</code></li>
+<li>Copy the following installers to the <code>$asap-img-builder/installers</code> directory.<ul>
+<li>Order Balancer Installer</li>
+<li>Installers for WebLogic Server and JDK</li>
+<li>ANT 1.10.15</li>
+<li>JDK 21</li>
+</ul>
+</li>
+<li>Update the following parameters in the <code>$asap-img-builder/ob.properties</code> file:</li>
+</ol>
+<pre><code class="language-bash">ob.tar.file=ASAP.R8_0_0.Bxxx.ob.tar
+ob.weblogic.username=weblogic
+ob.weblogic.password=
+ob.weblogic.port=7501
+ob.weblogic.domainName=ob
+ob.weblogic.channel.listenport=7502
+ob.weblogic.channel.publicport=30305
+ob.ssl.incoming=0
+ob.cacheexpiry=60
+#Time in seconds
+ob.all.servers.down.wait.interval=3600
+ob.all.servers.down.retry.interval=120
+ob.server.down.retry.interval=2
+ob.server.poll.interval=60
+ob.webservice.res.timeout=0
+ob.asap.conn.timeout=10
+## Values allowed: SEVERE, WARNING, INFO , FINE , FINEST ,ALL
+ob.logger.info=INFO
+ob.db.host=
+ob.db.port=1521
+ob.db.service.name=
+ob.db.user=
+ob.db.password=
+ob.jms.user=
+ob.jms.password=
+#RAC Database TNS parameters 
+ob.db.failover.mode.type=SELECT
+ob.db.failover.mode.method=PRECONNECT 
+ob.db.failover.retries=20 
+ob.db.failover.delay=3
+ob.db.backup.node=X.X.X.X
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>ob.weblogic.username</code> is the user name to log in to WebLogic Server.</li>
+<li><code>ob.weblogic.password</code> is the password to log in to WebLogic Server.</li>
+<li><code>ob.weblogic.port</code> is the port of the WebLogic Server.</li>
+<li><code>ob.weblogic.domainName</code> is the WebLogic Server domain.</li>
+<li><code>ob.weblogic.channel.listenport</code> is the channel listen port of the WebLogic Server.</li>
+<li><code>ob.weblogic.channel.publicport</code> is the public port of the WebLogic Server.</li>
+<li><code>ob.ssl.incoming</code> is set to enable SSL on Order Balancer WebLogic Server. The default value is 0 which specifies non-SSL.</li>
+<li><code>ob.cacheexpiry</code> specifies the duration in seconds that Order Balancer JPA shared query refreshes the cache. Cache is refreshed upon next request after the duration expires. The default value is 60.</li>
+<li><code>ob.all.servers.down.wait.interval</code> specifies the duration in seconds that Order Balancer waits before routing the request back to queue when all the ASAP instances are down. The default value is 3600.</li>
+<li><code>ob.all.servers.down.retry.interval</code> specifies the duration in seconds that Order Balancer waits before retrying to connect to fetch for an active ASAP member instance while waiting when all servers are down. The default value is 120.</li>
+<li><code>ob.server.down.retry.interval</code> specifies the duration in seconds that Order Balancer waits before reattempting to route the order to the same instance. If the re-attempt fails, the instance is marked as down. The default value is 2.</li>
+<li><code>ob.server.poll.interval</code> specifies the duration in seconds that Order Balancer waits before it retries to check the ASAP instance status. The default value is 60.</li>
+<li><code>ob.webservice.res.timeout</code> specifies the duration in seconds that Order Balancer waits for response before the read times-out. Order Balancer Web Service waits for a response from ASAP member instance after invoking the operation. A value of zero means Order Balancer will wait indefinitely until it receives a response from ASAP. The default value is 0 seconds (no read time-out).</li>
+<li><code>ob.asap.conn.timeout</code> specifies the duration in seconds that Order Balancer reattempts the connection to the ASAP instance. The default value is 10.</li>
+<li><code>ob.logger.info</code> specifies the log level for initializing the Order Balancer application root logger. The valid values are SEVERE, WARNING, INFO, FINE, FINEST, and ALL.</li>
+<li><code>ob.db.host</code> is the database host name or IP address.</li>
+<li><code>ob.db.port</code> is the database port.</li>
+<li><code>ob.db.service.name</code> is the database service name.</li>
+<li><code>ob.db.user</code> is the database user name.</li>
+<li><code>ob.db.password</code> is the database password.</li>
+<li><code>ob.jms.user</code> is the JMS user.</li>
+<li><code>ob.jms.password</code> is the JMS password.</li>
+<li><code>ob.db.failover.mode.type</code> specifies the type of failover to perform when the primary database node fails. Valid values are PRECONNECT which pre-establishes a backup connection for faster failover and BASIC which connects to the backup only after a failure occurs. The default value is Select.</li>
+<li><code>ob.db.failover.mode.method</code> specifies how the failover connection is established. Valid values are PRECONNECT and BASIC. The default value is PRECONNECT.</li>
+<li><code>ob.db.failover.retries</code> specifies the number of retry attempts to connect to the backup node in case of failure. The default value is 20.</li>
+<li><code>ob.db.failover.delay</code> specifies the delay in seconds between each failover retry attempt. The default value is 3.</li>
+<li><code>ob.db.backup.node</code> specifies the IP address or hostname of the backup database node used for failover. If the multidata source is not used, then the parameter value should be "none".</li>
+</ul>
+<p>Note: <strong>Do not add an ASAP instance when you are building the Order Balancer image</strong>. The wallet store is mounted dynamically in the Kubernetes cluster. The wallet files created in the image are not accessible in the Kubernetes Pod.</p>
+<p><strong>In the cloud native deployment, the WebLogic domain is non-SSL and the ingress controller is configured as SSL.</strong></p>
+<ol>
+<li>Update the <code>HTTPS_PROXY</code> and <code>HTTP_PROXY</code> variables in the <code>build_ob_env.sh</code> script:</li>
+</ol>
+<pre><code class="language-bash">base_image=oraclelinux:8
+HTTPS_PROXY=
+HTTP_PROXY=
+
+# Podman details
+OB_IMAGE_TAG=&quot;obcn:8.0.0.0.0&quot;
+OB_VOLUME=obhost_volume
+OB_CONTAINER=&quot;ob-c&quot;
+PODMAN_HOSTNAME=&quot;obhost&quot;
+
+# Installer filenames
+WEBLOGIC_DOMAIN=/u01/oracle/user_projects/domains/
+JDK_FILE=jdk-21_linux-x64.tar.gz
+FMW_FILE=fmw_V1045131-01.zip
+
+# Installation locations
+JAVA_HOME=/usr/lib/jvm/java/jdk-21.0.9
+PATH=$JAVA_HOME/bin:$PATH
+WEBLOGIC_HOME=/home/oracle/weblogic1412
+</code></pre>
+<p>Note: The file names of JDK_FILE and FMW_FILE variables must match with the file names in the <code>/asap-img-builder/installers/</code> folder.</p>
+<ol>
+<li>
+<p>Run the <code>build-asap-images.sh</code> script to build the Order Balancer images:
+    <code>./build-asap-images.sh -i ob</code></p>
+<p>The script creates the Order Builder images by running Podman and commits the Order Builder image.</p>
+</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Planning%20you%20installation%20Order%20Balancer/" class="btn btn-neutral float-left" title="Planning your installation Order Balancer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/" class="btn btn-neutral float-right" title="Creating an Order Balancer Cloud Native Instance">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026 Innova Solutions</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Planning%20you%20installation%20Order%20Balancer/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Creating%20an%20Order%20Balancer%20Cloud%20Native%20Instance/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
